@@ -1,20 +1,27 @@
 package sve.free.ex.gs.genconfig;
 
 import javax.json.bind.annotation.JsonbProperty;
-import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
 
 public class GenerationConfig {
 
-    @NotBlank(message = "First Name must not be null or empty")
     private String path;
 
-    @NotBlank(message = "First Name must not be null or empty")
     @JsonbProperty("resource-name")
     private String resourceName;
 
-    @NotBlank(message = "First Name must not be null or empty")
     @JsonbProperty("base-package")
     private String basePackage;
+
+    private ArrayList<Property> Properties;
+
+    public ArrayList<Property> getProperties() {
+        return Properties;
+    }
+
+    public void setProperties(ArrayList<Property> properties) {
+        Properties = properties;
+    }
 
     public String getBasePackage() {
         return basePackage;
@@ -38,5 +45,14 @@ public class GenerationConfig {
 
     public void setResourceName(String resourceName) {
         this.resourceName = resourceName;
+    }
+
+    @Override
+    public String toString() {
+        return "GenerationConfig{" +
+                "path='" + path + '\'' +
+                ", resourceName='" + resourceName + '\'' +
+                ", basePackage='" + basePackage + '\'' +
+                '}';
     }
 }
