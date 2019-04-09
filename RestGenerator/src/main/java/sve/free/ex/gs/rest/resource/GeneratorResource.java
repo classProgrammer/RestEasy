@@ -1,6 +1,7 @@
 package sve.free.ex.gs.rest.resource;
 import sve.free.ex.gs.genconfig.GenerationConfig;
 import sve.free.ex.gs.generator.writer.ContentWriter;
+import sve.free.ex.gs.generator.writer.DaoGenerator;
 import sve.free.ex.gs.generator.writer.DomainGenerator;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -25,6 +26,10 @@ public class GeneratorResource {
     public Response fetchConfig(GenerationConfig config) {
         DomainGenerator generator = new DomainGenerator();
         generator.generate(config);
+
+        DaoGenerator daogen = new DaoGenerator();
+
+        daogen.generate(config);
 
         return Response.created(URI.create("/dev/generator/")).build();
     }

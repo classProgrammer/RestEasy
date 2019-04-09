@@ -32,10 +32,4 @@ public class DomainGenerator {
         writer.write(config.getPath() + "/domain", config.getResourceName(), sb.toString());
     }
 
-    public void test(GenerationConfig config) {
-        ContentWriter writer = new ContentWriter();
-
-        writer.write(config.getPath() + "/domain", config.getResourceName(), "Kablaem");
-    }
-
 }
